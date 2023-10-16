@@ -5,7 +5,7 @@ import { useState} from "react";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 interface element{
   "1. symbol": string,
   "2. name": string,
@@ -17,16 +17,21 @@ interface element{
   "8. currency": string,
   "9. matchScore": string
 }
+
 export function SearchBar() {
+
   const [search, setSearch] = useState("");
-  const [filteredData, setFilteredData] = useState<element[]>([]);
+  const [filteredData, setFilteredData] = useState<element[] | null>([]);
   const navigate = useNavigate()
+
   const fetch_data = async(value) => {
     let response = await axios.post("http://localhost:3000/ticker",{
       ticker:value
     })
+    
     console.log(response.data)
-    setFilteredData(response.data || []) 
+    
+    setFilteredData(response.data) 
     console.log(filteredData)
   };
 

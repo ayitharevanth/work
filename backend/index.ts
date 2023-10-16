@@ -10,8 +10,7 @@ import onoffMarket from "./route/onoffMarket"
 import { authenticateJWT } from './authenticate'
 import ticker from './route/tickersearch'
 import sentiment from "./route/sentiment"
-
-
+import stock from "./route/stocks"
 const app = express();
 const port = 3000
 
@@ -32,7 +31,7 @@ app.use("/gainerLoser",gainerLoser)
 app.use("/onoffMarket",onoffMarket)
 app.use("/ticker",ticker)
 app.use("/sentiment",sentiment)
-
+app.use("/stock",stock)
 
 app.get("/me",authenticateJWT,(req:any,res)=>{
     res.json({

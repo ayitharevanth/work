@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
         // const response = await ticker(input_ticker);
         const response = [
         {
-            "1. symbol": "apple",
+            "1. symbol": "AAPL",
             "2. name": "",
             "3. type": "",
             "4. region": "",
@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
             "9. matchScore": ""
         },
         {
-            "1. symbol": "ibm",
+            "1. symbol": "IBM",
             "2. name": "",
             "3. type": "",
             "4. region": "",

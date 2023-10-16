@@ -12,7 +12,7 @@ import {RecoilRoot,useSetRecoilState} from 'recoil';
 import { Sentiment } from "./sentiment";
 import { Stocks } from "./stocks";
 import {userState} from "./store/atoms/user"
-
+import { Watchlist } from "./watchlist";
 
 function App() {
   // Call initUser function within the App component
@@ -34,6 +34,8 @@ function App() {
           <Route path="/gainer-loser" element={<Gainer_loser />} />
           <Route path="/sentiment" element={<Sentiment />} />
           <Route path="/stock/:stock" element={<Stocks/>}/>
+          <Route path="/watch" element={<Watchlist/>}/>
+
         </Routes>
       </Router>
 

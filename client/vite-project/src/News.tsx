@@ -4,7 +4,9 @@ import { SearchBar } from "./searchbar";
 import axios from "axios"
 import {usernameState} from "./store/selectors/user"
 import {useRecoilValue} from 'recoil';
-export function News() {
+
+
+function useNews(){
   const [news, setNews] = useState([]);
   const username = useRecoilValue(usernameState)
 
@@ -17,18 +19,29 @@ export function News() {
     newsGetter();
   }, []);
 
+  return {news,username}
+}
+export function News() {
+  
+  const {news,username} = useNews()
   return (
+    
     <>
     
       <SearchBar />
       <h1>Hello {username},look below whats happening</h1>
-      {news.map((element) => (
-        <div key={element.id}>
-          {element.title}
-          <br />
-          <br />
-        </div>
-      ))}
+      
+      {news.length > 0 ? (
+        news.map((element) => (
+          <div key={element.id}>
+            {element.title}
+            <br />
+            <br />
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </>
   );
 }
