@@ -2,20 +2,39 @@ import express from "express";
 import { User } from "../db";
 import { SECRET } from "../authenticate";
 import jwt from "jsonwebtoken"
-
+import {z} from "zod"
+import {parsedInput} from "../../common/src/index"
 const router = express.Router();
 
+
+// let input= z.object({
+//      username:z.string(),
+//      password: z.string()
+     
+// })
+
+
 router.post("/",async(req,res)=>{
-    const {username,password} = req.body
+     let parsed_input= parsedInput.safeParse(req.body)
+     
+     if(!parsed_input.success){
+          res.json({
+               "msg":"wring"
+          })
+          return
+     }
 
-   let New_user = await User.findOne({username,password})
+     const {username,password} = req.body
 
-   if(New_user){
-        const token = jwt.sign({ username, role: 'admin' },SECRET,{ expiresIn: '1h' })
-        res.send({msg : "user logged in successfully",token:token})
-   }else{
-        res.send({msg:"something something is wrong with you "})
-   }
+     let New_user = await User.findOne({username,password})
+
+     if(New_user){
+         
+          const token = jwt.sign({ id:New_user._id },SECRET,{ expiresIn: '1h' })
+          res.send({msg : "user logged in successfully",token:token})
+     }else{
+          res.send({msg:"something something is wrong with you "})
+     }
 })
 
 export default router

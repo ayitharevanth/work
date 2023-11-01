@@ -11,6 +11,8 @@ import { authenticateJWT } from './authenticate'
 import ticker from './route/tickersearch'
 import sentiment from "./route/sentiment"
 import stock from "./route/stocks"
+import watchlist from "./route/watchlist"
+import { User } from './db'
 const app = express();
 const port = 3000
 
@@ -32,10 +34,17 @@ app.use("/onoffMarket",onoffMarket)
 app.use("/ticker",ticker)
 app.use("/sentiment",sentiment)
 app.use("/stock",stock)
+app.use("/watchlist",authenticateJWT,watchlist)
 
-app.get("/me",authenticateJWT,(req:any,res)=>{
+app.get("/me",authenticateJWT,async (req:any,res)=>{
+    const userId = req.headers["userid"];
+
+    
+    const user = await User.findOne({ _id: userId });
+
+    const name = user.username
     res.json({
-        username:req.user
+        username:name
     })
     
 })

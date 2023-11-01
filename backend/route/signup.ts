@@ -3,13 +3,27 @@ import express from "express";
 import { User } from "../db";
 import { SECRET } from "../authenticate";
 import jwt from "jsonwebtoken"
+import {z} from "zod"
+import {parsedInput} from "../../common/src/index"
 
 const router = express.Router();
 
+// let input= z.object({
+//   username:z.string(),
+//   password: z.string()
+  
+// })
 
 router.post("/",async(req,res)=>{
     const { username, password } = req.body;
-  
+    let parsed_input = parsedInput.safeParse(req.body)  
+
+    if(!parsed_input.success){
+        res.json({
+          "msg":"wrong"
+        })
+      return
+    }
     try {
       const existingUser = await User.findOne({ username });
   
@@ -19,13 +33,15 @@ router.post("/",async(req,res)=>{
         const obj = { username, password };
         const newItem = new User(obj);
         await newItem.save();
-        const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
+        
+        const token = jwt.sign({ id:newItem._id }, SECRET, { expiresIn: '1h' });
         res.send({ msg: "User created successfully", token: token });
       }
     } catch (error) {
-      // Handle any database or other errors here
+    
       console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-}})
+      res.status(500).json({ message: 'Internal server error' });}
+    
+    })
 
 export default router

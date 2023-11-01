@@ -2,17 +2,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Appbar } from "./Appbar";
-import { Signup } from "./signup";
-import { Signin } from "./sigin";
-import { News } from "./News";
-import { Onoffmarket } from "./onoffmarket";
-import { Gainer_loser } from "./gainerLoser";
+import { Appbar } from "./compoenets/Appbar";
+import { Signup } from "./compoenets/auth/signup";
+import { Signin } from "./compoenets/auth/sigin";
+import { News } from "./compoenets/News";
+import { Onoffmarket } from "./compoenets/onoffmarket";
+import { Gainer_loser } from "./compoenets/gainerLoser";
 import {RecoilRoot,useSetRecoilState} from 'recoil';
-import { Sentiment } from "./sentiment";
-import { Stocks } from "./stocks";
+import { Sentiment } from "./compoenets/sentiment";
+import { Stocks } from "./compoenets/stocks";
 import {userState} from "./store/atoms/user"
-import { Watchlist } from "./watchlist";
+import { Watchlist } from "./compoenets/watchlist";
 
 function App() {
   // Call initUser function within the App component
@@ -34,8 +34,7 @@ function App() {
           <Route path="/gainer-loser" element={<Gainer_loser />} />
           <Route path="/sentiment" element={<Sentiment />} />
           <Route path="/stock/:stock" element={<Stocks/>}/>
-          <Route path="/watch" element={<Watchlist/>}/>
-
+          <Route path="/watchlists" element={<Watchlist/>}/>
         </Routes>
       </Router>
 
