@@ -1,9 +1,10 @@
 import express from "express";
-
+import * as dotenv from "dotenv"
 const router = express.Router();
-
+dotenv.config()
+const apiKey = process.env.API_KEY
 const current_status = async () => {
-  const apiKey = 'QW4I04HMH22TEVA1';
+  
   const url = `https://www.alphavantage.co/query?function=MARKET_STATUS&apikey=${apiKey}`;
 
   try {

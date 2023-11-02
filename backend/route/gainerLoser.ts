@@ -1,10 +1,13 @@
 import express from "express";
-
+import * as dotenv from "dotenv" 
 const router = express.Router();
 
+dotenv.config()
+
+const apiKey = process.env.API_KEY
+
 const fetchTopGainersLosers = async () => {
-  // Replace 'YOUR_API_KEY' with your actual Alpha Vantage API key
-  const apiKey = 'YOUR_API_KEY';
+  
   const url = `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${apiKey}`;
 
   try {

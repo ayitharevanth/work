@@ -1,10 +1,11 @@
 import express from "express";
-
+import * as dotenv from "dotenv"
 const router = express.Router();
 
+dotenv.config()
+const apiKey = process.env.API_KEY
 const News_getter = async () => {
-  // Replace 'YOUR_API_KEY' with your actual Alpha Vantage API key
-  const apiKey = 'QW4I04HMH22TEVA1';
+  
   const url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=${apiKey}`;
 
   try {

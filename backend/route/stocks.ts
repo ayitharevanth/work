@@ -1,10 +1,11 @@
 import express from "express";
-
+import * as dotenv from "dotenv"
 const router = express.Router();
-
+dotenv.config()
+const apiKey = process.env.API_KEY
 const funda_getter = async (symbol: string) => {
-  const apiKey = 'QW4I04HMH22TEVA1'; // Replace with your actual API key
-
+  
+  console.log(apiKey)
   const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`;
   
   try {
