@@ -31,15 +31,18 @@ export function Sentiment(){
     
     return <>
         
-        <SpeedometerComponent sentiment_value={sentiment_value}/>
-        <h1>{sentiment}</h1>
+        <SpeedometerComponent sentiment_value={sentiment_value}/>   
+        <center>
+        <div style={{margin: "50px",padding: "10px"}}>
+            <h1>{sentiment}</h1>
 
-        american markets:{markets_chg[0]}<br />
-        china market:{markets_chg[1]}<br />
-        russian market:{markets_chg[2]}<br />
+            american markets:{markets_chg[0]}<br />
+            china market:{markets_chg[1]}<br />
+            russian market:{markets_chg[2]}<br />
 
-        indian markets:{markets_chg[3]}<br />
-        
+            indian markets:{markets_chg[3]}<br />
+        </div>
+        </center>
     
     </>
 

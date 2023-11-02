@@ -4,6 +4,7 @@ import { SearchBar } from "./searchbar";
 import axios from "axios"
 import {usernameState} from "../store/selectors/user"
 import {useRecoilValue} from 'recoil';
+import { Typography } from "@mui/material";
 
 
 function useNews(){
@@ -27,17 +28,24 @@ export function News() {
   return (
     
     <>
-    
-      <SearchBar />
-      <h1>Hello {username},look below whats happening</h1>
       
+      <SearchBar />
+      <Typography variant="h3" gutterBottom>
+       Hello {username},look below whats happening
+      </Typography>
+      <hr />
       {news.length  > 0 ? (
         news.map((element) => (
-          <div key={element.id}>
-            {element.title}
-            <br />
-            <br />
-          </div>
+          
+          <Typography variant="subtitle1" gutterBottom>
+            <hr />
+            <div key={element.id}>
+              {element.title}
+              <hr />
+              <br />
+              
+            </div>
+          </Typography>
         ))
       ) : (
         <p>Loading...</p>

@@ -44,7 +44,12 @@ export function SearchBar() {
 
   
   return (
-    <div>
+    <div style={{width: "500px",
+      top: "15px",
+      margin: "8px",
+      padding: "7px",
+      left: "-12px",
+      position: "relative"}}>
       <TextField
         label="Search a stock"
         variant="outlined"

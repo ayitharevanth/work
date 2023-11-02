@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import {userState} from "../../store/atoms/user"
 import {ParseInputType} from "../../../../../common/src/index"
 import {useSetRecoilState} from 'recoil';
+import { Card } from '@mui/material';
 
 export function Signin() {
   const [username, setEmail] = useState('');
@@ -42,26 +43,32 @@ export function Signin() {
   };
 
   return (
-    <div>
-      <h1>Welcome back, my friend</h1>
-      <TextField
-        id="username"
-        label="Username"
-        variant="outlined"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br />
-      <TextField
-        id="password"
-        label="Password"
-        variant="outlined"
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <Button variant="contained" onClick={handleSignIn}>
-        Sign In
-      </Button>
-    </div>
+    <center>
+      <Card style={{border:"2px solid black",width:"300px",padding:"16px"}}>
+        <div>
+          <h1>Welcome back, my friend</h1>
+          <div >
+            <TextField
+              id="username"
+              label="Username"
+              variant="outlined"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <br />
+            <TextField
+              id="password"
+              label="Password"
+              variant="outlined"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br />
+            <Button variant="contained" onClick={handleSignIn}>
+              Sign In
+            </Button>
+          </div>
+        </div>
+    </Card>
+    </center>
   );
 }
