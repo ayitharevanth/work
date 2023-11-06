@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState,useEffect } from "react"
 import axios from "axios"
-
+import Typography from '@mui/material/Typography';
 export function Gainer_loser(){
     const [Gainer,setGainer] = useState([])
     const [loser,setLoser] = useState([])
@@ -18,13 +18,17 @@ export function Gainer_loser(){
         <h1>gainer</h1>
         {Gainer.map((element)=>{
             return <>
-                {element.ticker}:
-                {element.price}=
-                {element.change_amount}=
-                {element.change_percentage}=
-                {element.volume}
-                <br />
-                <br />
+                <Typography variant="h1" gutterBottom>
+                {element.ticker}:-
+                </Typography>
+                
+                <Typography variant="subtitle2" gutterBottom>
+                    {element.price}=
+                    {element.change_amount}=
+                    {element.change_percentage}=
+                    {element.volume}
+                </Typography>
+                <hr />
                 <br />
                 <br />
             </>

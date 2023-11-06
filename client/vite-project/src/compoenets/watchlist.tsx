@@ -31,7 +31,7 @@ export function Watchlist(){
             stockname:stock
           }
         });
-        console.log(res.data)
+        alert(res.data)
     }
     return (
        <>

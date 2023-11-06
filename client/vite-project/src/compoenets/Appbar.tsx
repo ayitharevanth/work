@@ -9,6 +9,8 @@ import {usernameState} from '../store/selectors/user'
 import {useRecoilValue} from 'recoil';
 
 
+
+
 export function Appbar(){
     const navigate = useNavigate()
     const username = useRecoilValue(usernameState)
@@ -19,11 +21,28 @@ export function Appbar(){
             justifyContent:"space-between"
         }}>    
             <div>
-                <h5>market</h5>
+                <h5 onClick={()=>{navigate("/News")}}>1% traders</h5>
        
             </div>
             <div>
-            <Button variant="contained" onClick={()=>{
+            <Button variant='contained' style={{margin:"10px"}} onClick={()=>{
+                navigate("/gainer-loser")
+            }}>gainerLoser</Button>
+
+            <Button variant='contained' style={{margin:"10px"}} onClick={()=>{
+                navigate("/sentiment")
+            }}>sentiment</Button>
+
+            <Button variant='contained' style={{margin:"10px"}} onClick={()=>{
+                navigate("/watchlists")
+            }}>watchlist</Button>
+
+            <Button variant='contained'  style={{margin:"10px"}} onClick={()=>{
+                navigate("/open-markets")
+            }}>open markets</Button>
+            
+            
+            <Button variant="contained" style={{margin:"10px"}} color="error" onClick={()=>{
                 localStorage.setItem("token",null)
                 navigate("/signin")
                 window.location.reload()
@@ -39,7 +58,7 @@ export function Appbar(){
             justifyContent:"space-between"
         }}>    
             <div>
-                <h5>market</h5>
+                <h5 onClick={()=>{navigate("/News")}}>1% traders</h5>
        
             </div>
             <div>

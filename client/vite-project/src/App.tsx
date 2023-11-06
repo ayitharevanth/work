@@ -13,6 +13,7 @@ import { Sentiment } from "./compoenets/sentiment";
 import { Stocks } from "./compoenets/stocks";
 import {userState} from "./store/atoms/user"
 import { Watchlist } from "./compoenets/watchlist";
+import { Index } from "./compoenets";
 
 function App() {
   // Call initUser function within the App component
@@ -35,6 +36,7 @@ function App() {
           <Route path="/sentiment" element={<Sentiment />} />
           <Route path="/stock/:stock" element={<Stocks/>}/>
           <Route path="/watchlists" element={<Watchlist/>}/>
+          <Route path="/" element={<Index/>}></Route>
         </Routes>
       </Router>
 

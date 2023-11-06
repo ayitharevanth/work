@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState,useEffect } from "react"
 import axios from "axios"
+import Typography from '@mui/material/Typography';
 
 export function Onoffmarket(){
     const [market_status,setMarket] = useState([])
@@ -12,17 +13,23 @@ export function Onoffmarket(){
     useEffect(()=>{
         status()
     },[])
-
-    return<>
-        {market_status.map((element)=>{
-            return<>
-                {element.market_type}=
-                {element.region}=
-                {element.current_status}
-                <br />
-                <br />
-            </>
-        })}
-    </>
-
+    if(market_status.length >1 ){
+        return<>
+            
+            {market_status.map((element)=>{
+                return<>
+                    {element.region}=
+                    {element.current_status}
+                    <br />
+                    <br />
+                </>
+            })}
+        </>
+    }else{
+        return<>
+            <Typography variant="h2" gutterBottom>
+                loading...
+            </Typography>
+        </>
+    }
 }

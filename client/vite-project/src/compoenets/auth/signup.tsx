@@ -19,7 +19,7 @@ export function Signup(){
             <center>
                 <Card style={{border:"2px solid black",width:"300px",padding:"16px"}}>
                     <div >
-                        <h1>welome to market viewer</h1>
+                        <h1>welome to 1% traders</h1>
                         <TextField id="username" label="username" variant="outlined" onChange={(e)=>{setemail(e.target.value)}} />
                         <br/>
                         <TextField id="password" label="password" variant="outlined" onChange={(e)=>{setpassword(e.target.value)}} />

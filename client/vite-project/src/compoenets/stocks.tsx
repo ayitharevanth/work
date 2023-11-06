@@ -100,7 +100,7 @@ export function Stocks(){
                 Authorization:"bearer "+localStorage.getItem("token")
               }
             })
-            console.log(res.data)
+            alert(res.data)
          }}>
                 Add to watchlist
           </Button>

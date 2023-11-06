@@ -41,6 +41,7 @@ export function News() {
             <hr />
             <div key={element.id}>
               {element.title}
+              <a href={element.url} target="_blank">click to read more</a>
               <hr />
               <br />
               

@@ -46,7 +46,7 @@ export function Signin() {
     <center>
       <Card style={{border:"2px solid black",width:"300px",padding:"16px"}}>
         <div>
-          <h1>Welcome back, my friend</h1>
+          <h1>Welcome back</h1>
           <div >
             <TextField
               id="username"
