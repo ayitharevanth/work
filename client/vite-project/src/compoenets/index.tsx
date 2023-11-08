@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export function Index(){
     const navigate = useNavigate()
     return<>
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div style={{display:'flex',justifyContent:'space-between',padding: "50px"}}>
             <div>
             <Typography variant="h5" gutterBottom>
                 Welcome to 1% Trader  Your Gateway to Informed Trading!
@@ -20,7 +20,7 @@ export function Index(){
             </div>
         </div>
         <hr />
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div style={{display:'flex',justifyContent:'space-between',padding: "50px"}}>
             
             <div>
                 <img src="https://i.ibb.co/7Q2MVHm/pic21.jpg" alt="foto" style={{width:"350px",margin:"10px"}} />
@@ -28,8 +28,8 @@ export function Index(){
             
             <div>
             <Typography variant="h3" gutterBottom>
-                    what are you waiting for? its free!
-                    sigup up now! <br />
+                    begin your journey for free!
+                     <br />
                     <Button variant="contained" onClick={()=>{
                         navigate("/signup")
                     }}>signup</Button>

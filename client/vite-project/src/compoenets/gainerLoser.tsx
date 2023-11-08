@@ -18,15 +18,15 @@ export function Gainer_loser(){
         <h1>gainer</h1>
         {Gainer.map((element)=>{
             return <>
-                <Typography variant="h1" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                 {element.ticker}:-
                 </Typography>
                 
                 <Typography variant="subtitle2" gutterBottom>
-                    {element.price}=
-                    {element.change_amount}=
-                    {element.change_percentage}=
-                    {element.volume}
+                    price={element.price} <br />
+                    CHG={element.change_amount} <br />
+                    CGH%={element.change_percentage}<br />
+                    total volume={element.volume}
                 </Typography>
                 <hr />
                 <br />

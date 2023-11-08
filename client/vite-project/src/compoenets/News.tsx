@@ -25,6 +25,7 @@ function useNews(){
 export function News() {
   
   const {news,username} = useNews()
+ 
   return (
     
     <>
@@ -34,7 +35,8 @@ export function News() {
        Hello {username},look below whats happening
       </Typography>
       <hr />
-      {news.length  > 0 ? (
+      
+      {news.length  > 0  ? (
         news.map((element) => (
           
           <Typography variant="subtitle1" gutterBottom>
